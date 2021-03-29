@@ -43,6 +43,7 @@ DB_DATABASE=automotriz_db
 And run in Command Prompt 
 
 ~~~
+: php artisan key:generate
 : php artisan db:create automotriz_db
 : php artisan migrate
 : php artisan db:seed
