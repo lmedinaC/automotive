@@ -62,7 +62,7 @@
                         <v-col sm="6" md="6" lg="6">
                             <v-text-field
                                 v-model="customer.phone_number"
-                                :rules="[requiredFieldRule, maxCharacterRule]"
+                                :rules="[requiredFieldRule, maxCharacterRule , maxCharacterPhone]"
                                 label="Phone Number"
                                 required
                             ></v-text-field>
@@ -150,7 +150,7 @@ export default {
             customer: {
                 name: "",
                 last_name: "",
-                phone_number: 999999999,
+                phone_number: "",
                 address: "",
                 birth_date: "",
                 state: 1,
@@ -164,6 +164,8 @@ export default {
             maxCharacterRule: v =>
                 (v && v.length <= 60) || "maximum is 60 characters",
             requiredFieldRule: v => !!v || "Required Field",
+            maxCharacterPhone: v =>
+                (v && v.length == 9) || "Phone number require 9 numbers",
 
             emailRules: [v => /.+@.+\..+/.test(v) || "E-mail must be valid"],
 
